@@ -1,4 +1,4 @@
-class LinkedList:
+class LinkedListNode:
     def __init__(self, key, val):
         self.key = key
         self.val = val 
@@ -10,8 +10,8 @@ class LRUCache:
     def __init__(self, capacity: int):
         self.capacity = capacity
         self.dict = {}
-        self.head =  LinkedList(-1,-1)
-        self.tail =  LinkedList(-1,-1)
+        self.head =  LinkedListNode(-1,-1)
+        self.tail =  LinkedListNode(-1,-1)
         
         # head connects tail
         self.head.next = self.tail
@@ -33,7 +33,7 @@ class LRUCache:
             oldnode = self.dict[key]
             self.remove(oldnode)
         
-        newnode = LinkedList(key, value)
+        newnode = LinkedListNode(key, value)
         self.add(newnode)
         self.dict[key] = newnode
 
